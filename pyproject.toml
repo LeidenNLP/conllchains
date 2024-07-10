@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "conllchains"
+version = "0.1"
+authors = [{name="Matthijs Westera", email="m.westera@hum.leidenuniv.nl"}]
+description = "For downloading the CONLL coreference-annotated dataset and extracting coreference chains in json format."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["tqdm"]
+
+[project.scripts]
+qclass = "qclass:main"
+
+[project.urls]
+"Homepage" = "https://github.com/mwestera/conllchains"
+"Bug Tracker" = "https://github.com/mwestera/conllchains/issues"
+
