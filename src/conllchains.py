@@ -52,7 +52,7 @@ def download(download_dir):
     with zipfile.ZipFile(download_to, 'r') as file:
         file.extractall(download_dir)
 
-    logging.info(f'All done! Now you should be able to do: \n $ python -m conllchains extract')
+    logging.info(f'All done! Now you should be able to do (e.g.): \n $ python -m conllchains extract > chains.jsonl')
 
 
 
