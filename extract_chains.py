@@ -37,7 +37,7 @@ def parse_coreference_lines(lines):
     """
     Parses coreference annotations in (some) conll format, as downloaded by the accompanying download.py.
     Yields parsed documents, each consisting of a list of tokens and a list of the extracted coreference chains.
-    Each coreference chain is a list of mentions; each mentoin is a tuple of tokens; each token has an id and a form.
+    Each coreference chain is a list of mentions; each mention is a tuple of tokens; each token has an id and a form.
 
     :param lines: an iterable of strings in the conll annotation format.
     :return: dictionaries with keys "document" and "chains".
