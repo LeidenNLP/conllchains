@@ -16,7 +16,7 @@ pip install git+https://github.com/LeidenNLP/conllchains/
 
 ## Use
 
-Subsequently, you can use `python -m` to run a model like a stand-alone script, like this (inside the same environment where you installed it):
+Subsequently, you can use `python -m` to run a module like a stand-alone script, like this (inside the same environment where you installed it):
 
 ```bash
 python -m conllchains download 
