@@ -27,7 +27,7 @@ Which will download and unzip the CONLL dataset to your current working director
 Once the corpus is downloaded, extract the coreference chains in `.jsonl` format like this (for example):
 
 ```bash
-python -m conllchains extract --out chains.jsonl
+python -m conllchains extract > chains.jsonl
 ```
 
 You can also specify which subset of the data to use (e.g., arabic); include the argument `--help` to see what other options are available:
