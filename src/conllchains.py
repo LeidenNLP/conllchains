@@ -25,8 +25,6 @@ def main():
                            help="For which language to extract the CONLL corpus. Option for 'extract' command only.")
     argparser.add_argument('--part', choices=['train', 'test', 'development', 'conll-2012-test', 'all'], nargs='?', default='all',
                            help="Which partition of the CONLL corpus to extract. Option for 'extract' command only.")
-    argparser.add_argument('--out', type=argparse.FileType('w'), nargs='?', default=sys.stdout,
-                           help="Which file to write the results to (.jsonl). Otherwise stdout.")
 
     args = argparser.parse_args()
 
@@ -36,7 +34,7 @@ def main():
     if args.command == 'download':
         download(download_dir)
     elif args.command == 'extract':
-        extract(conll_dir, args.lang, args.part, args.out)
+        extract(conll_dir, args.lang, args.part)
 
 
 def download(download_dir):
@@ -56,7 +54,7 @@ def download(download_dir):
 
 
 
-def extract(conll_dir: str, language: str, partition: str, out: TextIO) -> None:
+def extract(conll_dir: str, language: str, partition: str) -> None:
 
     glob_scheme = os.path.join(conll_dir, '*', 'data',
                                '*' if partition == 'all' else partition,
@@ -76,7 +74,7 @@ def extract(conll_dir: str, language: str, partition: str, out: TextIO) -> None:
         with open(path) as file:
             for parsed_coreference in parse_conll_lines(file):
                 n_chains += len(parsed_coreference['chains'])
-                print(json.dumps(parsed_coreference), file=out)
+                print(json.dumps(parsed_coreference))
 
     logging.info(f'Found {n_chains} coreference chains.')
 
